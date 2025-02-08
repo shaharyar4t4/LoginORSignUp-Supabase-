@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loginsupabase/auth/auth_gate.dart';
+import 'package:loginsupabase/screen/upload_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.light(primary: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: AuthGate(),
+      home: UploadPage(),
     );
   }
 }
