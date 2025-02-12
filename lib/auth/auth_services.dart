@@ -27,4 +27,21 @@ class AuthServices {
     final user = session?.user;
     return user?.email;
   }
+  // Get the user auth by the phone number
+  Future<void> signInWithPhone(String phone) async {
+    try {
+      await _supabase.auth.signInWithOtp(phone: phone);
+    } catch (e) {
+      throw Exception('Error sending OTP: $e');
+    }
+  }
+
+  Future<void> verifyOTP(String phone, String otp) async {
+    try {
+      await _supabase.auth.verifyOTP(phone: phone, token: otp, type: OtpType.sms);
+    } catch (e) {
+      throw Exception('Error verifying OTP: $e');
+    }
+  }
 }
+
